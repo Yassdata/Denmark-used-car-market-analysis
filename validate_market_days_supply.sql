@@ -1,6 +1,6 @@
--- I want the rate to use only eligible vehicles in the selected group.
+-- I divide current stock by the recent daily sales pace for the same selection.
 WITH filtered AS (
-    SELECT makename, modelname, eligible_90d, sold_within_90d
+    SELECT makename, modelname, active_inventory, sold_last_45d
     FROM vehicles
     WHERE (:makename IS NULL OR makename = :makename)
       AND (:modelname IS NULL OR modelname = :modelname)
@@ -10,18 +10,18 @@ WITH filtered AS (
       AND (:max_mileage IS NULL OR odometerkm <= :max_mileage)
 ), totals AS (
     SELECT 'overall' AS scope, NULL AS makename, NULL AS modelname,
-           COALESCE(SUM(eligible_90d), 0) AS eligible,
-           COALESCE(SUM(sold_within_90d), 0) AS sold_within_90d
+           COALESCE(SUM(active_inventory), 0) AS active_inventory,
+           COALESCE(SUM(sold_last_45d), 0) AS sold_last_45d
     FROM filtered
     UNION ALL
-    SELECT 'brand', makename, NULL, SUM(eligible_90d), SUM(sold_within_90d)
+    SELECT 'brand', makename, NULL, SUM(active_inventory), SUM(sold_last_45d)
     FROM filtered
     GROUP BY makename
     UNION ALL
-    SELECT 'model', makename, modelname, SUM(eligible_90d), SUM(sold_within_90d)
+    SELECT 'model', makename, modelname, SUM(active_inventory), SUM(sold_last_45d)
     FROM filtered
     GROUP BY makename, modelname
 )
-SELECT *, 1.0 * sold_within_90d / NULLIF(eligible, 0) AS rate
+SELECT *, 1.0 * :lookback_days * active_inventory / NULLIF(sold_last_45d, 0) AS market_days_supply
 FROM totals
 ORDER BY scope, makename, modelname;

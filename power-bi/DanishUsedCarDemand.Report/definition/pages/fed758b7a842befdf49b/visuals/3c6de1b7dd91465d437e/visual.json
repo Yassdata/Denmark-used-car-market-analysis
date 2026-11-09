@@ -32,7 +32,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "SYNTHETIC DEMO  /  Recorded sales inferred from listing activity",
+                    "value": "SYNTHETIC DEMO  /  Stock at the snapshot date and recorded sales over the preceding 45 days",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "15px",

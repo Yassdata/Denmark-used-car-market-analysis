@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "67dceaa203fb2d62cc02",
   "position": {
-    "x": 856,
+    "x": 648,
     "y": 205,
     "z": 8000,
-    "width": 400,
+    "width": 296,
     "height": 102,
     "tabOrder": 8000
   },
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Vehicles"
+                      "Entity": "MarketSnapshot"
                     }
                   },
-                  "Property": "Recorded 90-Day Sell-Through"
+                  "Property": "Market Days Supply"
                 }
               },
-              "queryRef": "Vehicles.Recorded 90-Day Sell-Through",
-              "nativeQueryRef": "Recorded 90-Day Sell-Through"
+              "queryRef": "MarketSnapshot.Market Days Supply",
+              "nativeQueryRef": "Market Days Supply"
             }
           ]
         }

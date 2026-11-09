@@ -5,7 +5,7 @@
     "x": 24,
     "y": 205,
     "z": 6000,
-    "width": 400,
+    "width": 296,
     "height": 102,
     "tabOrder": 6000
   },
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Vehicles"
+                      "Entity": "MarketSnapshot"
                     }
                   },
-                  "Property": "Eligible Cars"
+                  "Property": "Active Listings"
                 }
               },
-              "queryRef": "Vehicles.Eligible Cars",
-              "nativeQueryRef": "Eligible Cars"
+              "queryRef": "MarketSnapshot.Active Listings",
+              "nativeQueryRef": "Active Listings"
             }
           ]
         }

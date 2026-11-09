@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "7082d991bf6ca6825f83",
+  "position": {
+    "x": 960,
+    "y": 205,
+    "z": 8100,
+    "width": 296,
+    "height": 102,
+    "tabOrder": 8100
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MarketSnapshot"
+                    }
+                  },
+                  "Property": "Snapshot Date"
+                }
+              },
+              "queryRef": "MarketSnapshot.Snapshot Date",
+              "nativeQueryRef": "Snapshot Date"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

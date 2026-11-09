@@ -5,9 +5,10 @@ from pathlib import Path
 
 import pandas as pd
 
+from build_market_snapshot import LOOKBACK_DAYS, SPECIFICATIONS
 
-SPECIFICATIONS = ["makename", "modelname", "fueltype", "transmissiontype"]
-FLAGS = ["eligible_90d", "sold_within_90d"]
+
+FLAGS = ["active_inventory", "sold_last_45d"]
 KEYS = ["scope", "makename", "modelname"]
 SQL = Path(__file__).with_suffix(".sql")
 
@@ -25,8 +26,10 @@ def python_summary(vehicles: pd.DataFrame, filters: dict) -> pd.DataFrame:
     overall = pd.DataFrame([vehicles[FLAGS].sum()]).assign(scope="overall")
     brands = vehicles.groupby("makename", dropna=False)[FLAGS].sum().reset_index().assign(scope="brand")
     models = vehicles.groupby(["makename", "modelname"], dropna=False)[FLAGS].sum().reset_index().assign(scope="model")
-    totals = pd.concat([overall, brands, models], ignore_index=True).rename(columns={"eligible_90d": "eligible"})
-    totals["rate"] = totals["sold_within_90d"].div(totals["eligible"].where(totals["eligible"].ne(0)))
+    totals = pd.concat([overall, brands, models], ignore_index=True)
+    totals["market_days_supply"] = (totals["active_inventory"] * LOOKBACK_DAYS).div(
+        totals["sold_last_45d"].where(totals["sold_last_45d"].ne(0))
+    )
     return totals
 
 
@@ -35,12 +38,12 @@ def validate(vehicles: pd.DataFrame, **filters) -> pd.DataFrame:
     selections.update(filters)
     with closing(sqlite3.connect(":memory:")) as database:
         vehicles.to_sql("vehicles", database, index=False)
-        actual = pd.read_sql_query(SQL.read_text(encoding="utf-8"), database, params=selections)
+        actual = pd.read_sql_query(SQL.read_text(encoding="utf-8"), database, params={**selections, "lookback_days": LOOKBACK_DAYS})
 
     expected = python_summary(vehicles, selections)
     for summary in (actual, expected):
         summary[KEYS] = summary[KEYS].astype("string")
-        summary["rate"] = summary["rate"].astype(float)
+        summary["market_days_supply"] = summary["market_days_supply"].astype(float)
     actual = actual.sort_values(KEYS, na_position="first", ignore_index=True)
     expected = expected[actual.columns].sort_values(KEYS, na_position="first", ignore_index=True)
     pd.testing.assert_frame_equal(actual, expected, check_dtype=False, check_exact=False)
@@ -48,7 +51,7 @@ def validate(vehicles: pd.DataFrame, **filters) -> pd.DataFrame:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Compare the SQLite and pandas sell-through results.")
+    parser = argparse.ArgumentParser(description="Compare the SQLite and pandas Market Days Supply results.")
     parser.add_argument("source", type=Path)
     parser.add_argument("--brand", dest="makename")
     parser.add_argument("--model", dest="modelname")
@@ -63,7 +66,7 @@ def main() -> None:
     )
     summary = validate(vehicles, **selections)
     print(f"Pandas and SQLite match across {len(summary):,} summary rows.")
-    print(summary.loc[summary["scope"].eq("overall"), ["eligible", "sold_within_90d", "rate"]].to_string(index=False))
+    print(summary.loc[summary["scope"].eq("overall"), ["active_inventory", "sold_last_45d", "market_days_supply"]].to_string(index=False))
 
 
 if __name__ == "__main__":

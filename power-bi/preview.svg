@@ -1,41 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
-<title id="title">Danish Used-Car Demand</title>
-<desc id="desc">Static preview of 90-day sell-through by brand using synthetic data.</desc>
+<title id="title">Danish Used-Car Market Days Supply</title>
+<desc id="desc">Static preview of Market Days Supply by brand using synthetic data.</desc>
 <rect width="960" height="540" rx="20" fill="#f2f6fa"/>
 <g font-family="system-ui, sans-serif">
-<text x="32" y="49" font-size="32" font-weight="700" fill="#132e43">Danish Used-Car Demand</text>
-<text x="32" y="79" font-size="14" font-weight="700" fill="#41687f">STATIC PREVIEW  /  SYNTHETIC DATA</text>
+<text x="32" y="49" font-size="32" font-weight="700" fill="#132e43">Danish Used-Car Market Days Supply</text>
+<text x="32" y="79" font-size="14" font-weight="700" fill="#41687f">STATIC PREVIEW  /  SYNTHETIC DATA  /  1 JAN 2025</text>
 <rect x="32" y="102" width="288" height="102" rx="12" fill="#fff"/>
-<text x="52" y="135" font-size="16" font-weight="600" fill="#41687f">Eligible cars</text>
-<text x="52" y="179" font-size="32" font-weight="700" fill="#132e43">290</text>
+<text x="52" y="135" font-size="16" font-weight="600" fill="#41687f">Active listings</text>
+<text x="52" y="179" font-size="32" font-weight="700" fill="#132e43">102</text>
 <rect x="336" y="102" width="288" height="102" rx="12" fill="#fff"/>
-<text x="356" y="135" font-size="16" font-weight="600" fill="#41687f">Sold within 90 days</text>
-<text x="356" y="179" font-size="32" font-weight="700" fill="#132e43">179</text>
+<text x="356" y="135" font-size="16" font-weight="600" fill="#41687f">Recorded sales in 45 days</text>
+<text x="356" y="179" font-size="32" font-weight="700" fill="#132e43">47</text>
 <rect x="640" y="102" width="288" height="102" rx="12" fill="#fff"/>
-<text x="660" y="135" font-size="16" font-weight="600" fill="#41687f">Recorded sell-through</text>
-<text x="660" y="179" font-size="32" font-weight="700" fill="#132e43">61.72%</text>
+<text x="660" y="135" font-size="16" font-weight="600" fill="#41687f">Market Days Supply</text>
+<text x="660" y="179" font-size="32" font-weight="700" fill="#132e43">97.7 days</text>
 <rect x="32" y="222" width="896" height="286" rx="12" fill="#fff"/>
-<text x="52" y="260" font-size="20" font-weight="700" fill="#132e43">Recorded 90-day sell-through by brand</text>
-<text x="767" y="260" font-size="15" font-weight="600" fill="#41687f">Rate</text>
-<text x="843" y="260" font-size="15" font-weight="600" fill="#41687f">Eligible</text>
+<text x="52" y="260" font-size="20" font-weight="700" fill="#132e43">Market Days Supply by brand</text>
+<text x="767" y="260" font-size="15" font-weight="600" fill="#41687f">Days</text>
+<text x="843" y="260" font-size="15" font-weight="600" fill="#41687f">Active</text>
 <text x="52" y="306" font-size="17" font-weight="600" fill="#132e43">Toyota</text>
 <rect x="190" y="290" width="538" height="18" rx="9" fill="#e8eff4"/>
-<rect x="190" y="290" width="430.4" height="18" rx="9" fill="#087e8b"/>
-<text x="767" y="306" font-size="16" font-weight="600" fill="#132e43">80.0%</text>
-<text x="843" y="306" font-size="16" font-weight="400" fill="#132e43">65</text>
-<text x="52" y="355" font-size="17" font-weight="600" fill="#132e43">Škoda</text>
+<rect x="190" y="290" width="369.8" height="18" rx="9" fill="#087e8b"/>
+<text x="767" y="306" font-size="16" font-weight="600" fill="#132e43">85.9</text>
+<text x="843" y="306" font-size="16" font-weight="400" fill="#132e43">21</text>
+<text x="52" y="355" font-size="17" font-weight="600" fill="#132e43">VW</text>
 <rect x="190" y="339" width="538" height="18" rx="9" fill="#e8eff4"/>
-<rect x="190" y="339" width="311.5" height="18" rx="9" fill="#087e8b"/>
-<text x="767" y="355" font-size="16" font-weight="600" fill="#132e43">57.9%</text>
-<text x="843" y="355" font-size="16" font-weight="400" fill="#132e43">76</text>
-<text x="52" y="404" font-size="17" font-weight="600" fill="#132e43">Hyundai</text>
+<rect x="190" y="339" width="387.4" height="18" rx="9" fill="#087e8b"/>
+<text x="767" y="355" font-size="16" font-weight="600" fill="#132e43">90.0</text>
+<text x="843" y="355" font-size="16" font-weight="400" fill="#132e43">24</text>
+<text x="52" y="404" font-size="17" font-weight="600" fill="#132e43">Škoda</text>
 <rect x="190" y="388" width="538" height="18" rx="9" fill="#e8eff4"/>
-<rect x="190" y="388" width="308.6" height="18" rx="9" fill="#087e8b"/>
-<text x="767" y="404" font-size="16" font-weight="600" fill="#132e43">57.4%</text>
-<text x="843" y="404" font-size="16" font-weight="400" fill="#132e43">68</text>
-<text x="52" y="453" font-size="17" font-weight="600" fill="#132e43">VW</text>
+<rect x="190" y="388" width="406.7" height="18" rx="9" fill="#087e8b"/>
+<text x="767" y="404" font-size="16" font-weight="600" fill="#132e43">94.5</text>
+<text x="843" y="404" font-size="16" font-weight="400" fill="#132e43">21</text>
+<text x="52" y="453" font-size="17" font-weight="600" fill="#132e43">Hyundai</text>
 <rect x="190" y="437" width="538" height="18" rx="9" fill="#e8eff4"/>
-<rect x="190" y="437" width="292.2" height="18" rx="9" fill="#087e8b"/>
-<text x="767" y="453" font-size="16" font-weight="600" fill="#132e43">54.3%</text>
-<text x="843" y="453" font-size="16" font-weight="400" fill="#132e43">81</text>
+<rect x="190" y="437" width="498.0" height="18" rx="9" fill="#087e8b"/>
+<text x="767" y="453" font-size="16" font-weight="600" fill="#132e43">115.7</text>
+<text x="843" y="453" font-size="16" font-weight="400" fill="#132e43">36</text>
 </g></svg>

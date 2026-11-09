@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Vehicles"
+                      "Entity": "MarketSnapshot"
                     }
                   },
                   "Property": "odometerkm"
                 }
               },
-              "queryRef": "Vehicles.odometerkm",
+              "queryRef": "MarketSnapshot.odometerkm",
               "nativeQueryRef": "Mileage (km)"
             }
           ]

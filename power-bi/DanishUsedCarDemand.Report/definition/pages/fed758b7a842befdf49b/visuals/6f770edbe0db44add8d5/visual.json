@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Vehicles"
+                      "Entity": "MarketSnapshot"
                     }
                   },
                   "Property": "transmissiontype"
                 }
               },
-              "queryRef": "Vehicles.transmissiontype",
+              "queryRef": "MarketSnapshot.transmissiontype",
               "nativeQueryRef": "Transmission"
             }
           ]

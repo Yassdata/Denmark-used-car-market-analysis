@@ -1,16 +1,11 @@
-// I count the eligible cars in the current report selection.
-Eligible Cars = COALESCE(SUM(Vehicles[eligible_90d]), 0)
+// I count cars listed for sale at the snapshot date.
+Active Listings = COALESCE(SUM(MarketSnapshot[active_inventory]), 0)
 
-// I count eligible cars whose latest record shows a sale within 90 days.
-Sold Within 90 Days = COALESCE(SUM(Vehicles[sold_within_90d]), 0)
+// I count distinct cars recorded as sold over the preceding 45 days.
+Recorded Sales in 45 Days = COALESCE(SUM(MarketSnapshot[sold_last_45d]), 0)
 
-Recorded 90-Day Sell-Through = DIVIDE([Sold Within 90 Days], [Eligible Cars])
+Market Days Supply = DIVIDE(45 * [Active Listings], [Recorded Sales in 45 Days])
 
-// I show when a ranking is based on fewer than 30 eligible cars.
-Sample Size Note =
-    SWITCH(
-        TRUE(),
-        [Eligible Cars] = 0, "No eligible cars",
-        [Eligible Cars] < 30, "Small sample",
-        BLANK()
-    )
+Snapshot Date = CALCULATE(MAX(MarketSnapshot[as_of_date]), REMOVEFILTERS(MarketSnapshot))
+
+Sales Coverage Note = IF([Recorded Sales in 45 Days] = 0, "No recent sales")

@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "ccdeff888824a303b4e1",
   "position": {
-    "x": 440,
+    "x": 336,
     "y": 205,
     "z": 7000,
-    "width": 400,
+    "width": 296,
     "height": 102,
     "tabOrder": 7000
   },
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Vehicles"
+                      "Entity": "MarketSnapshot"
                     }
                   },
-                  "Property": "Sold Within 90 Days"
+                  "Property": "Recorded Sales in 45 Days"
                 }
               },
-              "queryRef": "Vehicles.Sold Within 90 Days",
-              "nativeQueryRef": "Sold Within 90 Days"
+              "queryRef": "MarketSnapshot.Recorded Sales in 45 Days",
+              "nativeQueryRef": "Recorded Sales in 45 Days"
             }
           ]
         }

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from build_vehicles import build_vehicle_table, read_snapshots
+from build_market_snapshot import build_market_snapshot, read_snapshots
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,7 +21,7 @@ class PowerBIProjectTests(unittest.TestCase):
         expression = "\n".join(table["partitions"][0]["source"]["expression"])
         encoded = re.search(r'Binary\.FromText\("([\w+/=]+)"', expression).group(1)
         actual = pd.read_csv(io.BytesIO(base64.b64decode(encoded)))
-        demo = build_vehicle_table(read_snapshots(ROOT / "data/demo_snapshots.csv"))
+        demo = build_market_snapshot(read_snapshots(ROOT / "data/demo_snapshots.csv"))
         expected = pd.read_csv(io.StringIO(demo.to_csv(index=False)))
         pd.testing.assert_frame_equal(actual, expected)
 
