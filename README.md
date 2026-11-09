@@ -1,6 +1,8 @@
 # Danish Used-Car Market Days Supply
 
-I started this portfolio project with a question. **How could a dealer use listing data to compare which used-car models to stock?** I wanted to practice turning raw listings into a metric I could explain and check. I used Python and SQL for the analysis, and I'm building the dashboard in Power BI.
+**For each used-car brand and model in Denmark, how many days would the stock in the latest snapshot last at the recorded sales pace of the previous 45 days?**
+
+I started this portfolio project to explore how a dealer could compare stock levels across models before deciding what to buy. I used Python and SQL to calculate and check Market Days Supply, and I'm building the dashboard in Power BI.
 
 ## How I approached the problem
 
