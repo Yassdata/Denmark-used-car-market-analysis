@@ -1,0 +1,16 @@
+// I count the eligible cars in the current report selection.
+Eligible Cars = COALESCE(SUM(Vehicles[eligible_90d]), 0)
+
+// I count eligible cars whose latest record shows a sale within 90 days.
+Sold Within 90 Days = COALESCE(SUM(Vehicles[sold_within_90d]), 0)
+
+Recorded 90-Day Sell-Through = DIVIDE([Sold Within 90 Days], [Eligible Cars])
+
+// I show when a ranking is based on fewer than 30 eligible cars.
+Sample Size Note =
+    SWITCH(
+        TRUE(),
+        [Eligible Cars] = 0, "No eligible cars",
+        [Eligible Cars] < 30, "Small sample",
+        BLANK()
+    )
