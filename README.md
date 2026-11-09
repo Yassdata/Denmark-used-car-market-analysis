@@ -6,6 +6,21 @@ I worked with real Danish used-car listing data. I used Python to count active l
 
 I can't share the original automotive data publicly, so I used synthetic listings for the GitHub demo. They let you run the same workflow with fictional vehicle records.
 
+## Power BI dashboard
+
+In the synthetic demo, **102 active listings** and **47 recorded sales in the preceding 45 days** give **97.7 days of supply** as of 1 January 2025.
+
+![Power BI overview showing Market Days Supply by brand and model, with all filters cleared](power-bi/dashboard-overview.png)
+
+<details>
+<summary>See the dashboard filtered to Hyundai i20</summary>
+
+With the brand, model, fuel type, transmission, and mileage filters applied, the selection shows **120 days of supply** from **16 active listings** and **6 recorded sales**.
+
+![Power BI report filtered to Hyundai i20, petrol, manual transmission, and a selected mileage range](power-bi/dashboard-filtered.png)
+
+</details>
+
 ## How I approached the problem
 
 1. **I chose Market Days Supply** because it compares how many cars are for sale with how quickly similar cars have been selling. I divide active listings by the average daily sales pace over the preceding 45 days. [Market Days Supply methodology](https://docs.marketcheck.com/docs/api/cars/market-insights/market-days-supply)
@@ -28,8 +43,6 @@ flowchart LR
     D --> E[Interactive report]
 ```
 
-![Static preview of Market Days Supply by brand using synthetic data](power-bi/preview.svg)
-
 ## Run the demo
 
 From the project folder, use a Python environment with pandas. The dependency is listed in `requirements.txt`. SQLite is included with Python.
@@ -40,10 +53,10 @@ python validate_market_days_supply.py output/demo_market_snapshot.csv
 python -m unittest discover -s tests -v
 ```
 
-The synthetic snapshot dated **1 January 2025** has **102 active listings** and **47 vehicles recorded as sold** over the previous 45 days, giving **97.7 days of supply**. The validator also accepts the report filters as command-line arguments.
+The overview and filtered totals match the Python and SQLite results. The validator accepts the report filters as command-line arguments so you can reproduce both checks.
 
-## Power BI
+## Open the Power BI project
 
-Open `power-bi/DanishUsedCarDemand.pbip` in Power BI Desktop on Windows and select **Refresh** to load the embedded synthetic dataset. The measures recalculate both counts and MDS for the current selection. [Power BI project](power-bi/DanishUsedCarDemand.pbip) · [Report guide](power-bi/report.md) · [DAX measures](power-bi/measures.dax)
+The starter Power BI project includes a semantic model and the synthetic data used in these examples. Open `power-bi/DanishUsedCarDemand.pbip` in Power BI Desktop on Windows and select **Refresh** to load the embedded dataset. [Power BI project](power-bi/DanishUsedCarDemand.pbip) · [Report guide](power-bi/report.md) · [DAX measures](power-bi/measures.dax)
 
-The automated checks verify the embedded data, model field bindings, and configured slicers. Rendering and interaction checks in Power BI Desktop are pending.
+The automated checks verify the embedded data, model field bindings, and configured slicers.
