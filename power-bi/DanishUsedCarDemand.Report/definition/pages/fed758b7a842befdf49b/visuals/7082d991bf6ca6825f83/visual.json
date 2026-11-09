@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "MarketSnapshot.Snapshot Date",
-              "nativeQueryRef": "Snapshot Date"
+              "nativeQueryRef": "Snapshot Date",
+              "displayName": "Snapshot date"
             }
           ]
         }

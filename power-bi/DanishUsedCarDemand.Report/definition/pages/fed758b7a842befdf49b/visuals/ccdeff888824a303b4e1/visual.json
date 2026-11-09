@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "MarketSnapshot.Recorded Sales in 45 Days",
-              "nativeQueryRef": "Recorded Sales in 45 Days"
+              "nativeQueryRef": "Recorded Sales in 45 Days",
+              "displayName": "Recorded sales in 45 days"
             }
           ]
         }
