@@ -2,7 +2,9 @@
 
 **For each used-car brand and model in Denmark, how many days would the stock in the latest snapshot last at the recorded sales pace of the previous 45 days?**
 
-I started this portfolio project to explore how a dealer could compare stock levels across models before deciding what to buy. I used Python and SQL to calculate and check Market Days Supply, and I'm building the dashboard in Power BI.
+I worked with real Danish used-car listing data. I used Python to count active listings and recent recorded sales from monthly snapshots, checked the Market Days Supply calculation in SQLite, and built a Power BI dashboard to compare brands and models.
+
+I can't share the original automotive data publicly, so I used synthetic listings for the GitHub demo. They let you run the same workflow with fictional vehicle records.
 
 ## How I approached the problem
 
@@ -25,8 +27,6 @@ flowchart LR
     B --> D[Power BI semantic model]
     D --> E[Interactive report]
 ```
-
-The public demo uses simulated vehicle histories. Its figures illustrate the workflow.
 
 ![Static preview of Market Days Supply by brand using synthetic data](power-bi/preview.svg)
 
