@@ -1,5 +1,7 @@
 # Power BI report setup
 
+Open [DanishUsedCarDemand.pbip](DanishUsedCarDemand.pbip) in Power BI Desktop and select **Refresh**. The model contains the synthetic demo vehicle table. For a manual build, use the model and page settings below.
+
 ## Semantic model
 
 1. Import `output/demo_vehicles.csv` as one table named `Vehicles`.

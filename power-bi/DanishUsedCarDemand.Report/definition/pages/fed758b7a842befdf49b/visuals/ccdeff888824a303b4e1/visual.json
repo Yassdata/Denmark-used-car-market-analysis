@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "ccdeff888824a303b4e1",
+  "position": {
+    "x": 440,
+    "y": 205,
+    "z": 7000,
+    "width": 400,
+    "height": 102,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vehicles"
+                    }
+                  },
+                  "Property": "Sold Within 90 Days"
+                }
+              },
+              "queryRef": "Vehicles.Sold Within 90 Days",
+              "nativeQueryRef": "Sold Within 90 Days"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

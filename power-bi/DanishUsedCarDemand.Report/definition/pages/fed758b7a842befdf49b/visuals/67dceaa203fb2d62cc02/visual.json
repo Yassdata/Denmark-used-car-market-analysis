@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "67dceaa203fb2d62cc02",
+  "position": {
+    "x": 856,
+    "y": 205,
+    "z": 8000,
+    "width": 400,
+    "height": 102,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vehicles"
+                    }
+                  },
+                  "Property": "Recorded 90-Day Sell-Through"
+                }
+              },
+              "queryRef": "Vehicles.Recorded 90-Day Sell-Through",
+              "nativeQueryRef": "Recorded 90-Day Sell-Through"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

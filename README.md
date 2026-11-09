@@ -14,6 +14,8 @@ flowchart LR
 
 The public demo uses simulated vehicle histories. Its figures illustrate the workflow.
 
+![Static preview of brand rankings and eligible vehicle counts from the synthetic demo](power-bi/preview.svg)
+
 ## Run the demo
 
 From the project folder, use a Python environment with pandas. The dependency is listed in `requirements.txt`. SQLite is included with Python.
@@ -34,4 +36,6 @@ The demo returns **179 of 290 eligible vehicles**, or **61.72%**. The validator 
 
 ## Power BI
 
-Use the generated `output/demo_vehicles.csv` for the [semantic model and report](power-bi/report.md). The [DAX measures](power-bi/measures.dax) recalculate the counts and rate for the current selection.
+Open [DanishUsedCarDemand.pbip](power-bi/DanishUsedCarDemand.pbip) in Power BI Desktop on Windows and select **Refresh** to load the embedded synthetic dataset. The [report guide](power-bi/report.md) describes the model, slicers, and expected results. The [DAX measures](power-bi/measures.dax) recalculate the counts and rate for the current selection.
+
+The automated checks verify the embedded data, model field bindings, and configured slicers. Rendering and interaction checks in Power BI Desktop are pending.

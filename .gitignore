@@ -1,5 +1,6 @@
 __pycache__/
 .venv/
+.pbi/
 output/
 data/*
 !data/demo_snapshots.csv

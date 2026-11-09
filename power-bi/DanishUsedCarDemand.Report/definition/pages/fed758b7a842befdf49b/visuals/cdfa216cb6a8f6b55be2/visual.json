@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "cdfa216cb6a8f6b55be2",
+  "position": {
+    "x": 24,
+    "y": 205,
+    "z": 6000,
+    "width": 400,
+    "height": 102,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Vehicles"
+                    }
+                  },
+                  "Property": "Eligible Cars"
+                }
+              },
+              "queryRef": "Vehicles.Eligible Cars",
+              "nativeQueryRef": "Eligible Cars"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
