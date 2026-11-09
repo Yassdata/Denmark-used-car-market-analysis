@@ -8,6 +8,12 @@ I started this portfolio project with a question. **How could a dealer use listi
 2. **I checked what each row represented.** The same car could appear as sold in more than one monthly snapshot. I counted distinct cars marked `forsale = 1` on the latest snapshot and counted each car marked `sold = 1` with a recorded exit in the preceding 45 days once. When a car had several qualifying records, I kept its latest qualifying exit. I used the newer export when two rows represented the same car and snapshot. Recorded listing exits serve as a proxy for sales.
 3. **I checked the calculation before using it in the report.** I compared the Python and SQLite results overall, by brand, and by model within brand. If a group has zero recorded sales, I leave Market Days Supply blank because the data gives me no recent sales pace to divide by.
 
+## Skills I can apply to other projects
+
+- **Defining a business metric.** I turned a stocking question into a measure with a clear reporting date and sales window. In a purchasing or replenishment project, I could compare days of supply with supplier lead times to identify products that may need reordering.
+- **Preparing and validating data.** I worked out which records represented the same car and checked the results in Python and SQL. I can use the same approach to define what counts as one observation in inventory snapshots, sales transactions, or customer histories.
+- **Modeling data for decisions.** I set up Power BI measures and filters to compare groups. The same approach could support category comparisons, flag slow stock for pricing review, or show how much cash is tied up in inventory when unit costs are available.
+
 ## How it works
 
 ```mermaid
