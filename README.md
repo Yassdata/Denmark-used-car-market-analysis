@@ -1,6 +1,12 @@
 # Danish Used-Car Market Days Supply
 
-How much competing stock is available relative to the recent sales pace? The report helps dealers compare sourcing options across brand, model, fuel type, transmission, and mileage.
+I started this portfolio project with a question. **How could a dealer use listing data to compare which used-car models to stock?** I wanted to practice turning raw listings into a metric I could explain and check. I used Python and SQL for the analysis, and I'm building the dashboard in Power BI.
+
+## How I approached the problem
+
+1. **I chose Market Days Supply** because it compares how many cars are for sale with how quickly similar cars have been selling. I divide active listings by the average daily sales pace over the preceding 45 days. [Market Days Supply methodology](https://docs.marketcheck.com/docs/api/cars/market-insights/market-days-supply)
+2. **I checked what each row represented.** The same car could appear as sold in more than one monthly snapshot. I counted distinct cars marked `forsale = 1` on the latest snapshot and counted each car marked `sold = 1` with a recorded exit in the preceding 45 days once. When a car had several qualifying records, I kept its latest qualifying exit. I used the newer export when two rows represented the same car and snapshot. Recorded listing exits serve as a proxy for sales.
+3. **I checked the calculation before using it in the report.** I compared the Python and SQLite results overall, by brand, and by model within brand. If a group has zero recorded sales, I leave Market Days Supply blank because the data gives me no recent sales pace to divide by.
 
 ## How it works
 
@@ -26,13 +32,7 @@ python validate_market_days_supply.py output/demo_market_snapshot.csv
 python -m unittest discover -s tests -v
 ```
 
-The synthetic snapshot dated **1 January 2025** has **102 active listings** and **47 vehicles recorded as sold** over the previous 45 days, giving **97.7 days of supply**. The validator compares Python and SQLite totals overall, by brand, and by brand and model. It also accepts the report filters as command-line arguments.
-
-## How we calculate Market Days Supply
-
-- **Active listings.** Count distinct Danish vehicles marked `forsale = 1` on the latest `pricedate`. When a vehicle has multiple exports for the same `pricedate`, keep the newest export.
-- **Recent sales.** Count distinct Danish vehicles marked `sold = 1` with a recorded exit in the 45 calendar days before the snapshot. When a vehicle appears more than once in that window, use its latest qualifying exit. Recorded exits serve as a proxy for retail sales.
-- **Days of supply.** Multiply active listings by 45 and divide by recent sales for the same selection. Leave MDS blank if there are zero recent sales. A lower MDS indicates less available stock relative to the recent sales pace. [Market Days Supply methodology](https://docs.marketcheck.com/docs/api/cars/market-insights/market-days-supply)
+The synthetic snapshot dated **1 January 2025** has **102 active listings** and **47 vehicles recorded as sold** over the previous 45 days, giving **97.7 days of supply**. The validator also accepts the report filters as command-line arguments.
 
 ## Power BI
 
